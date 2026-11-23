@@ -15,9 +15,11 @@ Le brief complet du TP se trouve dans le dossier parent (`../claude.md`, `../TP 
   lance toujours `dotnet` depuis ce dépôt pour garder le bon SDK.
 - Cible : .NET 10 LTS, et non .NET 8 comme dans le sujet (choix validé par l'utilisateur, .NET 8 n'étant plus supporté).
 - `dotnet-ef` 10.0.15 est installé globalement dans `%USERPROFILE%\.dotnet\tools`. Ce dossier n'est peut-être pas dans le PATH de la session.
-- Le SDK Android n'est **pas** encore installé : la cible `net10.0-android`, et donc `dotnet build` sur la solution entière,
-  échouent avec XA5300 tant que l'utilisateur n'a pas lancé `InstallAndroidDependencies` (voir README).
-  Pour vérifier le code MAUI sans Android : `dotnet build P8Maui -f net10.0-windows10.0.19041.0`.
+- SDK Android dans `%LOCALAPPDATA%\Android\Sdk` (plateforme 36, émulateur, image `android-36;google_apis;x86_64`),
+  JDK 21 via `JAVA_HOME`. `ANDROID_HOME` n'est pas défini : passe `-p:AndroidSdkDirectory="%LOCALAPPDATA%\Android\Sdk"`
+  à toute build Android, sinon l'erreur XA5300 apparaît.
+- AVD `Pixel7_API36` (accélération WHPX) : `%LOCALAPPDATA%\Android\Sdk\emulator\emulator.exe -avd Pixel7_API36`.
+  ID de l'application : `sn.esp.p8maui`.
 
 ## Commandes
 
@@ -26,6 +28,7 @@ dotnet build P5AspEntity
 cd P5AspEntity && dotnet ef migrations add <Nom> && dotnet ef database update
 dotnet run --project P5AspEntity --launch-profile http     # http://localhost:5112, Swagger sur /swagger
 dotnet build P8Maui -f net10.0-windows10.0.19041.0 -t:Run  # lance l'appli sous Windows
+dotnet build P8Maui -f net10.0-android -t:Run -p:AndroidSdkDirectory="$LOCALAPPDATA/Android/Sdk"  # émulateur déjà démarré
 ```
 
 Il n'y a pas de projet de tests. On vérifie l'API avec `P5AspEntity/P5AspEntity.http` ou avec curl.
