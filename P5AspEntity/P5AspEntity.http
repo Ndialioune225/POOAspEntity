@@ -1,0 +1,45 @@
+# Fichier de requêtes de test (Visual Studio / VS Code avec l'extension REST Client).
+# Lancez d'abord l'API : dotnet run --launch-profile http
+@baseUrl = http://localhost:5112
+
+### Liste de toutes les pizzas
+GET {{baseUrl}}/pizzas
+
+### Créer une pizza
+POST {{baseUrl}}/pizza
+Content-Type: application/json
+
+{
+  "name": "Thieb",
+  "description": "Pizza au poisson"
+}
+
+### Lire la pizza n°1
+GET {{baseUrl}}/pizza/1
+
+### Lire une pizza qui n'existe pas (doit renvoyer 404)
+GET {{baseUrl}}/pizza/9999
+
+### Modifier la pizza n°1
+PUT {{baseUrl}}/pizza/1
+Content-Type: application/json
+
+{
+  "name": "Thieb Bou Khonk",
+  "description": "Pizza au poisson et à la tomate"
+}
+
+### Supprimer la pizza n°1
+DELETE {{baseUrl}}/pizza/1
+
+### Bonus : liste des garnitures
+GET {{baseUrl}}/toppings
+
+### Bonus : ajouter une garniture
+POST {{baseUrl}}/topping
+Content-Type: application/json
+
+{
+  "name": "Oignons",
+  "price": 500
+}
