@@ -1,0 +1,15 @@
+# Sorties de compilation
+bin/
+obj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+*.user
+*.suo
+
+# Bases de données locales (SQLite)
+*.db
+*.db-shm
+*.db-wal
+*.db3
