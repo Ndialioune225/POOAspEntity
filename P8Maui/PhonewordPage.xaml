@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Module 1 du parcours MAUI : l'application "Phoneword".
+     Ici on garde volontairement le style du module (événements Clicked + code-behind)
+     pour comparer avec l'approche MVVM de la page Personnes. -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P8Maui.PhonewordPage"
+             Title="Phoneword">
+
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Label Text="Traducteur de numéro" Style="{StaticResource PageTitle}" />
+        <Label Text="Saisissez un numéro avec des lettres (ex. 1-555-NETMAUI) :" />
+        <Entry x:Name="PhoneNumberText" Text="1-555-NETMAUI" />
+        <Button x:Name="TranslateButton"
+                Text="Traduire"
+                Style="{StaticResource PrimaryButton}"
+                Clicked="OnTranslate" />
+        <Button x:Name="CallButton"
+                Text="Appeler"
+                Style="{StaticResource SecondaryButton}"
+                IsEnabled="False"
+                Clicked="OnCall" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P8Maui.AboutPage"
+             Title="À propos">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="12" Padding="20">
+            <Label Text="P8Maui" Style="{StaticResource PageTitle}" />
+            <Label Text="TP .NET MAUI — Solution POOAspEntity" FontAttributes="Bold" />
+            <Label Text="ESP / UCAD — Master 2 GLSI — Enseignement .NET, 2026/2027" />
+
+            <Border Style="{StaticResource Card}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Notions du parcours Microsoft Learn utilisées :" FontAttributes="Bold" />
+                    <Label Text="• Module 1 : première application (onglet Phoneword)" />
+                    <Label Text="• Modules 2, 3, 6 : XAML, mise en page, styles partagés (App.xaml)" />
+                    <Label Text="• Modules 4, 5 : MVVM, liaisons de données et commandes" />
+                    <Label Text="• Module 7 : navigation Shell avec TabBar" />
+                    <Label Text="• Module 8 : stockage local avec SQLite" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Navigation Shell (module 7) : une barre d'onglets en bas de l'écran.
+     Les pages sont créées à la demande (DataTemplate) et MainPage reçoit
+     son ViewModel par injection de dépendances. -->
+<Shell
+    x:Class="P8Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:P8Maui"
+    Title="P8Maui">
+
+    <TabBar>
+        <ShellContent Title="Personnes"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage" />
+        <ShellContent Title="Phoneword"
+                      ContentTemplate="{DataTemplate local:PhonewordPage}"
+                      Route="PhonewordPage" />
+        <ShellContent Title="À propos"
+                      ContentTemplate="{DataTemplate local:AboutPage}"
+                      Route="AboutPage" />
+    </TabBar>
+
+</Shell>
